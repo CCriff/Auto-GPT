@@ -6,7 +6,7 @@ import agent_manager as agents
 import speak
 from config import Config
 import ai_functions as ai
-from file_operations import read_file, write_to_file, append_to_file, delete_file, search_files
+from file_operations import read_file, write_to_file, append_to_file, delete_file, search_files, create_folder
 from execute_code import execute_python_file
 from json_parser import fix_and_parse_json
 from image_gen import generate_image
@@ -82,6 +82,8 @@ def execute_command(command_name, arguments):
             return get_hyperlinks(arguments["url"])
         elif command_name == "read_file":
             return read_file(arguments["file"])
+        elif command_name == "create_folder":
+            return create_folder(arguments["folder_name"])
         elif command_name == "write_to_file":
             return write_to_file(arguments["file"], arguments["text"])
         elif command_name == "append_to_file":

@@ -9,7 +9,7 @@ from base64 import b64decode
 
 cfg = Config()
 
-working_directory = "auto_gpt_workspace"
+working_directory = "curtis"
 
 def generate_image(prompt):
 

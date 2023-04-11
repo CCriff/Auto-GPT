@@ -2,7 +2,7 @@ import os
 import os.path
 
 # Set a dedicated folder for file I/O
-working_directory = "auto_gpt_workspace"
+working_directory = "curtis"
 
 # Create the directory if it doesn't exist
 if not os.path.exists(working_directory):
@@ -65,6 +65,7 @@ def delete_file(filename):
     except Exception as e:
         return "Error: " + str(e)
 
+
 def search_files(directory):
     found_files = []
 
@@ -81,3 +82,16 @@ def search_files(directory):
             found_files.append(relative_path)
 
     return found_files
+
+
+def create_folder(folder_name):
+    """Create a folder within the working directory."""
+    try:
+        folder_path = safe_join(working_directory, folder_name)
+        if not os.path.exists(folder_path):
+            os.makedirs(folder_path)
+            return f"Folder '{folder_name}' created successfully."
+        else:
+            return f"Folder '{folder_name}' already exists."
+    except Exception as e:
+        return "Error: " + str(e)
